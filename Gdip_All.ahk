@@ -3081,7 +3081,7 @@ WinGetRect( hwnd, &x:="", &y:="", &w:="", &h:="" ) {
 	Ptr := A_PtrSize ? "UPtr" : "UInt"
 	CreateRect(&winRect, 0, 0, 0, 0) ;is 16 on both 32 and 64
 	;VarSetCapacity( winRect, 16, 0 )	; Alternative of above two lines
-	DllCall( "GetWindowRect", Ptr, hwnd, Ptr, &winRect )
+	DllCall( "GetWindowRect", Ptr, hwnd, Ptr, winRect.Ptr )
 	x := NumGet(winRect,  0, "UInt")
 	y := NumGet(winRect,  4, "UInt")
 	w := NumGet(winRect,  8, "UInt") - x
